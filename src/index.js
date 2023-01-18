@@ -6,10 +6,15 @@ const flash = require("express-flash");
 const session = require("express-session");
 const {
     checkAuthenticated,
-    checkNotAuthenticated
+    checkNotAuthenticated,
+    checkIsRetailler,
+    checkIsNGO
 } = require("./utils/middleware");
 
+const ngo = require("./routing/ngo.js");
+
 const app = express();
+app.use(ngo);
 
 const publicDirectory = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -38,25 +43,38 @@ app.use(passport.session());
 const initializePassport = require("./utils/passportConfig");
 initializePassport(passport, email => {
     return new Promise((resolve, reject) => {
-        const sql = "SELECT * FROM `userdetail` WHERE `email` = '" + email + "'";
+        const sql = "SELECT * FROM `users` WHERE `email` = '" + email + "'";
         connection.query(sql, (err, rows) => {
             resolve(rows[0]);
         })
     })
 }, id => {
     return new Promise((resolve, reject) => {
-        const sql = "SELECT * FROM `userdetail` WHERE `id` = " + id + "";
+        const sql = "SELECT * FROM `users` WHERE `id` = " + id + "";
         connection.query(sql, (err, rows) => {
             resolve(rows[0]);
         })
     })
 });
 
-app.get("/", checkAuthenticated ,(req, res) => {
-    res.render("index")
+app.get("/", (req, res) => {
+    let ngo = false, retailler = false;
+    if(!req.user){
+    }else if(req.user.status == "ngo"){
+        ngo = true;
+    }else{
+        retailler = true;
+    }
+    res.render("index", {
+        ngo,
+        retailler
+    })
 })
 app.get("/login",checkNotAuthenticated, (req, res)=>{
     res.render("login");
+})
+app.get("/signup",checkNotAuthenticated, (req, res)=>{
+    res.render("signup");
 })
 app.post("/login",checkNotAuthenticated, passport.authenticate("local", {
     successRedirect: "/",
@@ -64,11 +82,12 @@ app.post("/login",checkNotAuthenticated, passport.authenticate("local", {
     failureFlash: true,
 }))
 app.get("/logout", checkAuthenticated, (req, res) => {
-    req.logOut();
     console.log('Log out done');
-    res.redirect("/login");
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/login');
+      });
 })
-
 app.listen(port, () => {
     console.log(`Server running at http://${hostname}:${port}/`)
 });

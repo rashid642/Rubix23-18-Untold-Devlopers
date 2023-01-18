@@ -11,7 +11,26 @@ function checkNotAuthenticated(req, res, next) {
     }
     next()
 }
+
+function checkIsRetailler(req, res, next) {
+    if (req.user.status === "retailler") {
+        return next();
+    } else {
+        res.redirect("/");
+    }
+}
+
+function checkIsNGO(req, res, next) {
+    if (req.user.status !== "ngo") {
+        return next();
+    } else {
+        res.redirect("/");
+    }
+}
+
 module.exports = {
     checkAuthenticated,
     checkNotAuthenticated,
+    checkIsRetailler,
+    checkIsNGO
 }

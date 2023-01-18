@@ -1,12 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+  <title>Food Bachao</title>
+  <meta property="og:title" content="Clean Sudden Goldfish" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <style data-tag="reset-style-sheet">
+    html {
+      line-height: 1.15;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+    }
+
+    p,
+    li,
+    ul,
+    pre,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    figure,
+    blockquote,
+    figcaption {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      background-color: transparent;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    button:-moz-focus,
+    [type="button"]:-moz-focus,
+    [type="reset"]:-moz-focus,
+    [type="submit"]:-moz-focus {
+      outline: 1px dotted ButtonText;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    input {
+      padding: 2px 4px;
+    }
+
+    img {
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Inter;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.15;
+      color: var(--dl-color-gray-black);
+      background-color: var(--dl-color-gray-white);
+
+    }
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    data-tag="font" />
+  <!--This is the head section-->
+  <!-- <style> ... </style> -->
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-    <h1>Welcome Home</h1>
+  <div>
+    <link href="./css/home.css" rel="stylesheet" />
+
+    <div class="home-container">
+      {{>navbar}}
+      <div class="home-gallery">
+        <div class="home-container02">
+          <div class="home-container03">
+            <div class="home-container04">
+              <div class="gallery-card2-gallery-card gallery-card2-root-class-name2">
+                <div class="gallery-card2-container">
+                  <div class="gallery-card2-container1">
+                    <h2 class="gallery-card2-text">
+                      <span>Food Bachao</span>
+                    </h2>
+                    <span class="gallery-card2-text1">
+                      <span>
+                        “Throwing away food is like stealing from the table of those who are poor and hungry.” – Pope
+                        Francis
+                        elit
+                      </span>
+                    </span>
+                    <!-- <span class="gallery-card2-text2">SHOW MORE</span> -->
+                  </div>
+                </div>
+                <img alt="image"
+                  src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDI0fHxmb29kfGVufDB8fHx8MTYyNjQ0OTIzNQ&amp;ixlib=rb-1.2.1&amp;h=1000"
+                  class="gallery-card2-image" />
+              </div>
+            </div>
+            <div class="home-container05">
+              <div class="gallery-card2-gallery-card gallery-card2-root-class-name3">
+                <div class="gallery-card2-container">
+                  <div class="gallery-card2-container1">
+                    <h2 class="gallery-card2-text">
+                      <span>Food Bachao</span>
+                    </h2>
+                    <span class="gallery-card2-text1">
+                      <span>
+                        “We should all grow our own food and do our own waste processing, we really should.”- Bill Gates
+                        elit
+                      </span>
+                    </span>
+                    <!-- <span class="gallery-card2-text2">SHOW MORE</span> -->
+                  </div>
+                </div>
+                <img alt="image"
+                  src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDN8fGZvb2R8ZW58MHx8fHwxNjI2NDQ5NjUy&amp;ixlib=rb-1.2.1&amp;h=1000"
+                  class="gallery-card2-image" />
+              </div>
+            </div>
+          </div>
+          <div class="home-container06">
+            <div class="gallery-card2-gallery-card gallery-card2-root-class-name">
+              <div class="gallery-card2-container">
+                <div class="gallery-card2-container1">
+                  <h2 class="gallery-card2-text">
+                    <span>Food Bachao</span>
+                  </h2>
+                  <span class="gallery-card2-text1">
+                    <span>
+                      “We are trashing our land to grow food that no one eats.” – Tristram Stuart.
+                    </span>
+                  </span>
+                  <!-- <span class="gallery-card2-text2">SHOW MORE</span> -->
+                </div>
+              </div>
+              <img alt="image"
+                src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDIzfHxmb29kfGVufDB8fHx8MTYyNjQ0OTY1Mg&amp;ixlib=rb-1.2.1&amp;h=1000"
+                class="gallery-card2-image" />
+            </div>
+          </div>
+        </div>
+        <div class="home-container07">
+          <div class="gallery-card2-gallery-card gallery-card2-root-class-name4">
+            <div class="gallery-card2-container">
+              <div class="gallery-card2-container1">
+                <h2 class="gallery-card2-text"><span>Food Bachao</span></h2>
+                <span class="gallery-card2-text1">
+                  <span>
+                    Chefs often preach that food waste is disrespectful to the farmer, the land where the food is
+                    produced, and ultimately the animal or plant itself.
+                  </span>
+                </span>
+                <!-- <span class="gallery-card2-text2">SHOW MORE</span> -->
+              </div>
+            </div>
+            <img alt="image"
+              src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE5fHxmb29kfGVufDB8fHx8MTYyNjQ0OTY1Mg&amp;ixlib=rb-1.2.1&amp;h=1000"
+              class="gallery-card2-image" />
+          </div>
+        </div>
+      </div>
+
+      <h1>OUR&nbsp; FOOD PRODUCTS</h1>
+      <div class="home-blog">
+        <div class="blog-post-card4-blog-post-card blog-post-card4-root-class-name1">
+          <img alt="image" src="Thumps Up.jpeg" class="blog-post-card4-image" />
+          <div class="blog-post-card4-container">
+            <span class="blog-post-card4-text"><span>FEB 24 2023 </span></span>
+            <span class="blog-post-card4-text1">
+              <span>
+                The above item will expire early! Hurry Up Buy this.
+              </span>
+            </span>
+            <div class="blog-post-card4-separator"></div>
+            <span class="blog-post-card4-text2">
+              <span>Save Food</span>
+            </span>
+          </div>
+        </div>
+        <div class="home-container08">
+          <div class="blog-post-card4-blog-post-card blog-post-card4-root-class-name2">
+            <img alt="image" src="bhel.jpg" class="blog-post-card4-image" />
+            <div class="blog-post-card4-container">
+              <span class="blog-post-card4-text"><span>JAN 24</span></span>
+              <span class="blog-post-card4-text1">
+                <span>
+                  The above item will expire early! Hurry Up Buy this.
+                </span>
+              </span>
+              <div class="blog-post-card4-separator"></div>
+              <span class="blog-post-card4-text2"><span>Save Food</span></span>
+            </div>
+          </div>
+          <div class="blog-post-card4-blog-post-card blog-post-card4-root-class-name3">
+            <img alt="image" src="dosa.jpg" class="blog-post-card4-image" />
+            <div class="blog-post-card4-container">
+              <span class="blog-post-card4-text"><span>MAR 24</span></span>
+              <span class="blog-post-card4-text1">
+                <span>
+                  The above item will expire early! Hurry Up Buy this.
+                </span>
+              </span>
+              <div class="blog-post-card4-separator"></div>
+              <span class="blog-post-card4-text2">
+                <span>Save Food</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="blog-post-card4-blog-post-card blog-post-card4-root-class-name4">
+          <img alt="image" src="masala.jpg" class="blog-post-card4-image" />
+          <div class="blog-post-card4-container">
+            <span class="blog-post-card4-text"><span>JULY 24</span></span>
+            <span class="blog-post-card4-text1">
+              <span>
+                The above item will expire early! Hurry Up Buy this.
+              </span>
+            </span>
+            <div class="blog-post-card4-separator"></div>
+            <span class="blog-post-card4-text2">
+              <span>Save Food</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="home-banner">
+        <h1 class="home-text01">Our Mission</h1>
+        <span class="home-text02">
+          <span>
+            <span>
+              Food Forward fights hunger and prevents food waste by rescuing fresh surplus produce, connecting this
+              abundance with people experiencing food insecurity, and inspiring others to do the same. Our expert staff
+              and community partners share simple steps you can take to reduce food waste at home.
+            </span>
+            <span></span>
+          </span>
+        </span>
+        <button class="home-button button">Read More</button>
+      </div>
+      {{>footer}}
+    </div>
+  </div>
+  <script data-section-id="header" src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
+
 </html>

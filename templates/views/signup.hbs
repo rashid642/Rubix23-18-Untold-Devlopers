@@ -166,19 +166,39 @@ label.light {
         <div class="home-container">
             <div class="row" style="width: 40%;">
                 <div class="col-md-12">
-                <form action="/login" method="post">
-                    <h1> Login </h1>
+                <form action="index.html" method="post">
+                    <h1> Sign Up </h1>
+
                     <fieldset>
+
+                    <legend> Your Basic Info</legend>
+
+                    <label for="name">Shop Name:</label>
+                    <input type="text" id="name" name="shop_name">
+                    
+                    <label for="name">Owner name:</label>
+                    <input type="text" id="name" name="user_name">
+
                     <label for="email">Email:</label>
-                    <input type="email" id="mail" name="email">
+                    <input type="email" id="mail" name="user_email">
+
+                    <label for="Contactnumer">Contact number:</label>
+                    <input type="tel" id="number" name="user_number">
+
+                    <label for="address">Shop Address:</label>
+                    <input type="text" id="name" name="user_name">
+
                     <label for="address">Password:</label>
-                    <input type="password" id="name" name="password">
-                    <p> Create an account <a href="#" style="color:dodgerblue">Signup here </a>.</p>
+                    <input type="password" id="name" name="user_name">
+
+                    <label for="address">Confirm Password:</label>
+                    <input type="password" id="name" name="user_name">
+
+                    <p> Already have account <a href="#" style="color:dodgerblue">Login here </a>.</p>
                     </fieldset>
-                    <p style="color: red; text-align:center">{{messages.error}}</p>
-                    <button type="submit">Login</button>
-                    {{#if messages}}
-                    {{/if}}
+                    
+                    <button type="submit">Sign Up</button>
+
                 </form>
                 </div>
             </div>
