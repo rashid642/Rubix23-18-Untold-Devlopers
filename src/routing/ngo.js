@@ -14,6 +14,9 @@ router.get("/ngo_profile", (req, res) => {
 router.get("/ngolist", (req, res) => {
     res.render("ngolist");
 })
+router.get("/donationlist", (req, res) => {
+    res.render("donationlist");
+})
 
 module.exports = router;
 

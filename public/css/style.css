@@ -34,7 +34,7 @@
   --dl-space-space-threeunits: 48px;
   --dl-space-space-oneandhalfunits: 24px;
 }
-.button {
+.nav-button {
   color: var(--dl-color-gray-black);
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -102,6 +102,9 @@
   font-weight: 500;
 }
 
-.home-button button{
+.home-button nav-button{
   background-color: #000000;
+}
+a{
+  color: black;
 }
