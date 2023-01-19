@@ -118,64 +118,37 @@
                     </div>
                   </div>
               </div>
+              {{#each rows}}
               <div class="donated-item-box">
-                  <img src="dosa.jpg" class="item-img">
+                  <img src="./uploads/{{this.image}}" class="item-img">
                   <div class="box-details">
                     <div class="single-details">
                       <div class="det-left">Doner Name :</div>
-                      <div class="det-right"> Rashid</div>
+                      <div class="det-right">{{this.doner_name}}</div>
                     </div>
                     <div class="single-details">
                       <div class="det-left">Contact No. :</div>
-                      <div class="det-right"> 8928063456</div>
+                      <div class="det-right"> {{this.contact_no}}</div>
                     </div>
                     <div class="single-details">
                       <div class="det-left">Food Item :</div>
-                      <div class="det-right">Idli Smabhar</div>
+                      <div class="det-right">{{this.foot_item}}</div>
                     </div>
                     <div class="single-details">
                       <div class="det-left">Food Shelf life :</div>
-                      <div class="det-right">6</div>
+                      <div class="det-right">{{this.no_of_hours}}</div>
                     </div>
                     <div class="single-details">
                       <div class="det-left">Number of people :</div>
-                      <div class="det-right">18</div>
+                      <div class="det-right">{{this.no_of_people}}</div>
                     </div>
                     <div class="single-details">
                       <div class="det-left">Address :</div>
-                      <div class="det-right">Behram Baugh New Link Road</div>
+                      <div class="det-right">{{this.address}}</div>
                     </div>
                   </div>
               </div>
-              <div class="donated-item-box">
-                  <img src="dosa.jpg" class="item-img">
-                  <div class="box-details">
-                    <div class="single-details">
-                      <div class="det-left">Doner Name :</div>
-                      <div class="det-right"> Rashid</div>
-                    </div>
-                    <div class="single-details">
-                      <div class="det-left">Contact No. :</div>
-                      <div class="det-right"> 8928063456</div>
-                    </div>
-                    <div class="single-details">
-                      <div class="det-left">Food Item :</div>
-                      <div class="det-right">Idli Smabhar</div>
-                    </div>
-                    <div class="single-details">
-                      <div class="det-left">Food Shelf life :</div>
-                      <div class="det-right">6</div>
-                    </div>
-                    <div class="single-details">
-                      <div class="det-left">Number of people :</div>
-                      <div class="det-right">18</div>
-                    </div>
-                    <div class="single-details">
-                      <div class="det-left">Address :</div>
-                      <div class="det-right">Behram Baugh New Link Road</div>
-                    </div>
-                  </div>
-              </div>
+              {{/each}}
         </div>
     </div>
     {{>footer}}

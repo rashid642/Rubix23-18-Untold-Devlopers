@@ -12,7 +12,7 @@ const {
 } = require("./utils/middleware");
 
 const ngo = require("./routing/ngo.js");
-
+const retailler = require("./routing/retailler.js")
 const app = express();
 
 const publicDirectory = path.join(__dirname, "../public");
@@ -57,8 +57,10 @@ initializePassport(passport, email => {
 });
 
 app.use(ngo);
+app.use(retailler);
 
 app.get("/", (req, res) => {
+    console.log("req user ",req.user);
     let ngo = false, retailler = false;
     if(!req.user){
     }else if(req.user.status === "ngo"){
@@ -66,9 +68,33 @@ app.get("/", (req, res) => {
     }else{
         retailler = true;
     }
-    console.log(req.user);
-    console.log("inside / ", ngo, retailler)
     res.render("index", {
+        ngo,
+        retailler
+    })
+})
+app.get("/aboutus", (req, res) => {
+    let ngo = false, retailler = false;
+    if(!req.user){
+    }else if(req.user.status === "ngo"){
+        ngo = true;
+    }else{
+        retailler = true;
+    }
+    res.render("aboutus", {
+        ngo,
+        retailler
+    })
+})
+app.get("/contactus", (req, res) => {
+    let ngo = false, retailler = false;
+    if(!req.user){
+    }else if(req.user.status === "ngo"){
+        ngo = true;
+    }else{
+        retailler = true;
+    }
+    res.render("contactus", {
         ngo,
         retailler
     })

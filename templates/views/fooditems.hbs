@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Fira-sans:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <style data-tag="reset-style-sheet">
       html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
     </style>
@@ -28,6 +27,10 @@
         background-color: var(--dl-color-gray-white);
 
       }
+      #mytable_wrapper{
+        width: 80%;
+        margin: 50px 0px;
+      }
     </style>
     <link
       rel="stylesheet"
@@ -38,44 +41,48 @@
     <!-- <style> ... </style> -->
     <link rel="stylesheet" href="./css/style.css" />
     <link href="./css/home.css" rel="stylesheet" />
-    <link href="./css/donate.css" rel="stylesheet" />
   </head>
   <body>
     <div>
         {{>navbar}}
-        {{!-- <div class="home-container"> --}}
-            <div class="main-block">
-        <div class="left-part">
-
+        <div class="home-container">
+            <h1 style="margin-bottom: 5px;">Food Items</h1>
+            <table id="mytable" class="display">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Brand</th>
+                        <th>Expiry Date</th>
+                        <th>Price</th>
+                        <th>Shop Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {{#each newrows}}
+                    <tr>
+                        <td>{{this.product_name}}</td>
+                        <td>{{this.brand}}</td>
+                        <td>{{this.expiry}}</td>
+                        <td>{{this.discounted_price}}</td>
+                        <td>Row 1 Data 2</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
-        <form action="/donate" enctype="multipart/form-data" method="post">
-            <h1>Donate Food</h1>
-            <div class="info">
-                  <p class="p"> Name</p>
-                  <input class="fname" type="text" name="doner_name" placeholder=" Untold_Developers">
-                  <p class="p"> Contact Number</p>
-                  <input type="number" name="contact_no" placeholder="+91 9876543210">
-                  <p class="p"> Food Items</p>
-                  <input type="text" name="food_item" placeholder="Bread, Butter">
-                  <p class="p"> Quantity </p>
-                  <input type="text" name="no_of_people" placeholder="Suitable for how many people">
-                  <p class="p"> Address</p>
-                  <input type="text" name="address" placeholder="Street 321, Mumbai 400301">
-                  <p class="p"> Till when we can use(in hours)</p>
-                  <input type="number" name="no_of_hours" placeholder="Till when we can use(in hours)">
-                  <p class="p"> Image</p>
-                  <input type="file" id="file-upload" name="file" required>
-                </div>
-                <button class="button5" type="submit">Submit</button>
-            </form>
-        </div>
-        </div>
-    {{!-- </div> --}}
+    </div>
     {{>footer}}
     <script
       data-section-id="header"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready( function () {
+          $('#mytable').DataTable();
+      } );
+    </script>
   </body>
 </html>

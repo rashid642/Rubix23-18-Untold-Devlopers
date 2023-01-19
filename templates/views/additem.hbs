@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Clean Sudden Goldfish</title>
+    <meta property="og:title" content="Clean Sudden Goldfish" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+      form {
+      width: 50%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-container {
+      padding: 2rem;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-bottom: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 0.8rem;
+    }
+
+    .form-group label {
+      font-size: 1rem;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+
+    }
+
+    .form-group input[type="submit"] {
+        width: 100%;
+        align-items: center;
+        background-color: #09a009;
+        color: rgb(222, 247, 226);
+        font-size: 0.8rem;
+        padding: 14px 33px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #a6f20d;
+    }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <!--This is the head section-->
+    <!-- <style> ... </style> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="./css/home.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+        {{>navbar}}
+        <div class="home-container">
+                <h1 style="text-align: center; margin: 19px;">Reatilers Product Form</h1>
+              <form action="/additem" method="post">
+                <div class="form-container">
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" id="name" name="product_name" placeholder="Product Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="brand">Brand</label>
+                    <input type="text" id="brand" name="brand" placeholder="Product Brand" required>
+                </div>
+                <div class="form-group">
+                    <label for="Quantity">Quantity</label>
+                    <input type="text" id="quantity" placeholder="Enter your Quantity in KG" name="quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date of Expiry</label>
+                    <input type="date" id="date" name="expiry" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Actual Price</label>
+                    <input type="number" id="quantity" name="actual_price"  min="1"
+                    max="20000" placeholder="Enter actual price" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Discounted Price</label>
+                    <input type="number" id="quantity" name="discounted_price" min="1"
+                    max="20000" placeholder="Enter discounted price" required>
+                </div>
+                {{#if msg}}
+                <p style="color: green;">{{msg}}</p>
+                {{/if}}
+                <div class="form-group">
+                    <input type="submit" value="Submit Order">
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{>footer}}
+    <script
+      data-section-id="header"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </body>
+</html>
