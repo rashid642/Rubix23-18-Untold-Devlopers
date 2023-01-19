@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fira-sans:300,400,500,700" rel="stylesheet">
     <style data-tag="reset-style-sheet">
       html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
     </style>
@@ -27,12 +28,6 @@
         background-color: var(--dl-color-gray-white);
 
       }
-      .card-list{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-      }
     </style>
     <link
       rel="stylesheet"
@@ -43,42 +38,52 @@
     <!-- <style> ... </style> -->
     <link rel="stylesheet" href="./css/style.css" />
     <link href="./css/home.css" rel="stylesheet" />
-    <link href="./css/cards.css" rel="stylesheet" />
+    <link href="./css/donate.css" rel="stylesheet" />
   </head>
   <body>
     <div>
         {{>navbar}}
-        <div class="home-container">
-            <h1>List of NGO's</h1>
-            <div class="card-list">
-                {{#each rows}}
-                <div class="about-cards">
-                    <div class="card" id="card-1">
-                        <div class="image-DR">
-                        <img src="ngo-icon.jpg" alt="">
-                        </div>
-                        <div class="content-a">
-                        <div class="title">
-                            {{this.name}}
-                        </div>
-                        <div class="sub-title"> <b>City: {{this.city}}</b></div>
-                        <a href="/ngo_profile?id={{this.id}}">Know More</a>
-                        <div class="button">
-                            <button></button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
-            </div>
+        {{!-- <div class="home-container"> --}}
+            <div class="main-block">
+        <div class="left-part">
+
         </div>
-    </div>
+        <form action="/">
+            <h1>Donate Food</h1>
+            <div class="info">
+                    <p class="p"> Name</p>
+                    <input class="fname" type="text" name="name" placeholder=" Untold_Developers">
+                    <p class="p"> Contact Number</p>
+
+                    <input type="number" name="Contact number" placeholder="+91 9876543210">
+                    <p class="p"> Food Items</p>
+
+                    <input type="text" name="Food item" placeholder="Bread, Butter">
+                    <p class="p"> Quantity </p>
+                    <input type="text" name="Suitable for how many people" placeholder="Suitable for how many people">
+                    <p class="p"> Address</p>
+
+                    <input type="text" name="Address" placeholder="Street 321, Mumbai 400301">
+                    <p class="p"> Till when we can use(in hours)</p>
+
+                    <input type="number" name="Till when we can use(in hours)" placeholder="Till when we can use(in hours)">
+
+                    <p class="p"> Image</p>
+
+                    <input type="file" name="Image)
+    " placeholder="Image">
+
+                </div>
+                <button class="button5" type="submit">Submit</button>
+            </form>
+        </div>
+        </div>
+    {{!-- </div> --}}
     {{>footer}}
     <script
       data-section-id="header"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="./js/card.js"> </script>
   </body>
 </html>

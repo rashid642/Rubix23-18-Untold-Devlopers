@@ -27,6 +27,50 @@
         background-color: var(--dl-color-gray-white);
 
       }
+      .search{
+          width: 50%;
+          border: 2px solid grey;
+          height: 50px;
+          padding: 0px 20px;
+          border-radius: 20px;
+          margin: 24px 9px;
+      }
+      .donated-item-box{
+            padding: 20px; 
+        border-bottom-left-radius: 20px;
+      border-top-right-radius: 20px;
+      margin: 20px;
+      width: 400px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      transition: transform 1s;
+      }
+      .donated-item-box:hover{
+        transform: scale(1.05);
+      }
+      .donated-item-container{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      .box-details{
+
+      }
+      .single-details{
+        padding: 8px 4px;
+        display: flex;
+      }
+      .det-left{
+        font-weight: 700;
+        padding-left: 40px;
+      }
+      .det-right{
+      }
+      .item-img{
+        width: 300px;
+        margin: auto;
+        border-radius: 20px;
+      }
     </style>
     <link
       rel="stylesheet"
@@ -43,9 +87,98 @@
         {{>navbar}}
         <div class="home-container">
             <h1>Donated Items</h1>
-
+            <input type="text" class="search" placeholder="Search..">
+            <div class="donated-item-container">
+              <div class="donated-item-box">
+                  <img src="dosa.jpg" class="item-img">
+                  <div class="box-details">
+                    <div class="single-details">
+                      <div class="det-left">Doner Name :</div>
+                      <div class="det-right"> Rashid</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Contact No. :</div>
+                      <div class="det-right"> 8928063456</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Food Item :</div>
+                      <div class="det-right">Idli Smabhar</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Food Shelf life :</div>
+                      <div class="det-right">6</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Number of people :</div>
+                      <div class="det-right">18</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Address :</div>
+                      <div class="det-right">Behram Baugh New Link Road</div>
+                    </div>
+                  </div>
+              </div>
+              <div class="donated-item-box">
+                  <img src="dosa.jpg" class="item-img">
+                  <div class="box-details">
+                    <div class="single-details">
+                      <div class="det-left">Doner Name :</div>
+                      <div class="det-right"> Rashid</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Contact No. :</div>
+                      <div class="det-right"> 8928063456</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Food Item :</div>
+                      <div class="det-right">Idli Smabhar</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Food Shelf life :</div>
+                      <div class="det-right">6</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Number of people :</div>
+                      <div class="det-right">18</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Address :</div>
+                      <div class="det-right">Behram Baugh New Link Road</div>
+                    </div>
+                  </div>
+              </div>
+              <div class="donated-item-box">
+                  <img src="dosa.jpg" class="item-img">
+                  <div class="box-details">
+                    <div class="single-details">
+                      <div class="det-left">Doner Name :</div>
+                      <div class="det-right"> Rashid</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Contact No. :</div>
+                      <div class="det-right"> 8928063456</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Food Item :</div>
+                      <div class="det-right">Idli Smabhar</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Food Shelf life :</div>
+                      <div class="det-right">6</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Number of people :</div>
+                      <div class="det-right">18</div>
+                    </div>
+                    <div class="single-details">
+                      <div class="det-left">Address :</div>
+                      <div class="det-right">Behram Baugh New Link Road</div>
+                    </div>
+                  </div>
+              </div>
         </div>
     </div>
+    {{>footer}}
     <script
       data-section-id="header"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"

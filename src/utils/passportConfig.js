@@ -1,7 +1,6 @@
 const LocalStrategy = require("passport-local").Strategy;
 function initialize(passport, getUserByEmail, getUserById) {
     const authenticateUser =  async (email, password, done) => {
-        // console.log(email, password);
         const user = await getUserByEmail(email);
         if (user == null) {
             return done(null, false, { message: "No user with that email" });

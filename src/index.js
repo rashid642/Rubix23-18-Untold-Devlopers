@@ -14,7 +14,6 @@ const {
 const ngo = require("./routing/ngo.js");
 
 const app = express();
-app.use(ngo);
 
 const publicDirectory = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -57,14 +56,18 @@ initializePassport(passport, email => {
     })
 });
 
+app.use(ngo);
+
 app.get("/", (req, res) => {
     let ngo = false, retailler = false;
     if(!req.user){
-    }else if(req.user.status == "ngo"){
+    }else if(req.user.status === "ngo"){
         ngo = true;
     }else{
         retailler = true;
     }
+    console.log(req.user);
+    console.log("inside / ", ngo, retailler)
     res.render("index", {
         ngo,
         retailler
