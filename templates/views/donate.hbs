@@ -48,34 +48,31 @@
         <div class="left-part">
 
         </div>
-        <form action="/">
-            <h1>Donate Food</h1>
-            <div class="info">
-                    <p class="p"> Name</p>
-                    <input class="fname" type="text" name="name" placeholder=" Untold_Developers">
+                    {{!-- <p class="p"> Name</p>
+                    <input class="fname" type="text" name="doner_name" placeholder=" Untold_Developers">
                     <p class="p"> Contact Number</p>
 
-                    <input type="number" name="Contact number" placeholder="+91 9876543210">
+                    <input type="number" name="contact_no" placeholder="+91 9876543210">
                     <p class="p"> Food Items</p>
 
-                    <input type="text" name="Food item" placeholder="Bread, Butter">
+                    <input type="text" name="food_item" placeholder="Bread, Butter">
                     <p class="p"> Quantity </p>
-                    <input type="text" name="Suitable for how many people" placeholder="Suitable for how many people">
+                    <input type="text" name="no_of_people" placeholder="Suitable for how many people">
                     <p class="p"> Address</p>
 
-                    <input type="text" name="Address" placeholder="Street 321, Mumbai 400301">
+                    <input type="text" name="address" placeholder="Street 321, Mumbai 400301">
                     <p class="p"> Till when we can use(in hours)</p>
 
-                    <input type="number" name="Till when we can use(in hours)" placeholder="Till when we can use(in hours)">
+                    <input type="number" name="no_of_hours" placeholder="Till when we can use(in hours)">
 
-                    <p class="p"> Image</p>
-
-                    <input type="file" name="Image)
-    " placeholder="Image">
-
+                    <p class="p"> Image</p> --}}
+              <h1>Donate Food</h1>
+              <div class="info">
                 </div>
-                <button class="button5" type="submit">Submit</button>
-            </form>
+          <form action="/donate" method="post" enctype="multipart/form-data">
+                    <input type="file" id="file-upload" name="file" required>
+              <button class="button5" type="submit">Submit</button>
+          </form>
         </div>
         </div>
     {{!-- </div> --}}

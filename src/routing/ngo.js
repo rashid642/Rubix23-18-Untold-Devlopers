@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const upload = require("express-fileupload");
 const router = new express.Router();
 const {
     checkAuthenticated,
@@ -109,25 +110,33 @@ router.get("/donate", (req, res) => {
 })
 router.post("/donate", (req, res) => {
     const uploadpath = path.join(__dirname, "../../public/uploads");
-    var file = req.files.file
-    const filename = file.name;
-    try {
-        const sql = "INSERT INTO `doner_form` (`doner_name`, `contact_no`, `foot_item`, `no_of_people`, `address`, `no_of_hours`, `image`, `did`, `current_date_time`) VALUES ('Rahsid', '897512345', 'Dal,Roti,Chawal', '15', 'Behram Baugh', '16', 'kdnive', NULL, current_timestamp());"
-        connection.query(sql, (err, rows) => {
-            file.mv(uploadpath + "/" + filename, (error) => {
-                res.redirect("/donate",{
-                    msg : "Donation Request Successfull"
-                });
-            })
-
-        })
-    } catch (error) {
-        console.log(error);
-        res.redirect("/donate",{
-            msg : "Donation Request was not made"
-        });
-    }
+    console.log("file=",req.files);
+    console.log("body=",req.body);
+    res.redirect("/donate");
 })
+// const filename = "";
+// const doner_name = req.body.doner_name;
+// const contact_no = req.body.contact_no;
+// const food_item = req.body.food_item;
+// const no_of_people = req.body.no_of_people;
+// const address = req.body.address;
+// const no_of_hours = req.body.no_of_hours;
+// try {
+//     const sql = "INSERT INTO `doner_form` (`doner_name`, `contact_no`, `foot_item`, `no_of_people`, `address`, `no_of_hours`, `image`, `did`, `current_date_time`) VALUES ('"+doner_name+"', '"+contact_no+"', '"+food_item+"', '"+no_of_people+"', '"+address+"', '"+no_of_hours+"', '"+uploadpath+"', NULL, current_timestamp());"
+//     connection.query(sql, (err, rows) => {
+//         file.mv(uploadpath + "/" + filename, (error) => {
+//             res.redirect("/donate",{
+//                 msg : "Donation Request Successfull"
+//             });
+//         })
+
+//     })
+// } catch (error) {
+//     console.log(error);
+//     res.redirect("/donate",{
+//         msg : "Donation Request was not made"
+//     });
+// }
 
 module.exports = router;
 
