@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Clean Sudden Goldfish</title>
+    <title>DashBoard</title>
     <meta property="og:title" content="Clean Sudden Goldfish" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -62,10 +62,67 @@
 
       }
       .grid-cont{
-
+            border: 2px solid;
+            margin: 40px 20px;
       }
       .grid-rows{
-        
+          display: flex;
+          width: 1250px;
+      }
+      .col1{
+        width: 25%; 
+        background: #d3e9d0;
+        padding: 10px 20px;       
+      }
+      .col2{
+        width: 25%;
+        padding: 10px 20px;
+      }
+      .col3{
+        width: 15%;
+        background: #d3e9d0;
+        padding: 10px 20px;
+      }
+      .col4{
+        width: 10%;
+        padding: 10px 20px;
+      }
+      .col5{
+        width: 10%;
+        background: #d3e9d0;
+        padding: 10px 20px;
+      }
+      .col6{
+        padding: 10px 20px;
+      }
+      .tb-head{
+          font-weight: 700;
+      }
+      .row-head{
+        border: 2px solid;
+      }
+      .col-btn{
+        border: 1px solid;
+        padding: 6px 20px;
+        margin: 0px 2px;
+      }
+      .btn-col{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 189px;
+      }
+      .add-item-btn{
+        border: 2px solid;
+        padding: 14px 20px;
+        border-radius: 10px;
+        color: green;
+      }
+      .abv-grid{
+          display: flex;
+          margin: 10px 50px;
+        align-items: center;
+        justify-content: space-around;
       }
     </style>
     <link
@@ -88,31 +145,53 @@
               <div class="ret-details">
                   <div class="ret-inner-detail">
                   <div class="ret-left">Shop Name:</div>
-                  <div class="ret-right">Al-flah</div>
+                  <div class="ret-right">{{data.shop_name}}</div>
                 </div>
                 <div class="ret-inner-detail">
                   <div class="ret-left">Owner Name:</div>
-                  <div class="ret-right">Md. Rashid Aziz</div>
+                  <div class="ret-right">{{data.owner_name}}</div>
                 </div>
                 <div class="ret-inner-detail">
                   <div class="ret-left">Email:</div>
-                  <div class="ret-right">md.r.a.n.786@gmail.com</div>
+                  <div class="ret-right">{{data.email}}</div>
                 </div>
                 <div class="ret-inner-detail">
                   <div class="ret-left">Contact No.:</div>
-                  <div class="ret-right">8928063861</div>
+                  <div class="ret-right">{{data.cont_no}}</div>
                 </div>
                 <div class="ret-inner-detail">
                   <div class="ret-left">Shop Address:</div>
-                  <div class="ret-right">Behram Baugh New Link Road</div>
+                  <div class="ret-right">{{data.cont_no}}</div>
                 </div>
               </div>
           </div>
           <div>
-            <h2>Your Items</h2>
+            <div class="abv-grid">
+              <h2>Your Items</h2>
+              <a href="/additem"><button class="add-item-btn">Add more Item</button></a>
+            </div>
             <div class="grid-cont">
-              <div class="grid-rows">
+              <div class="grid-rows row-head">
+                <div class="col1 tb-head">Product Name</div>
+                <div class="col2 tb-head">Brand</div>
+                <div class="col3 tb-head">Expiry</div>
+                <div class="col4 tb-head">Price</div>
+                <div class="col5 tb-head">Quantity</div>
+                <div class="col6 tb-head">Operations</div>
               </div>
+              {{#each rows2}}
+              <div class="grid-rows">
+                <div class="col1">{{this.product_name}}</div>
+                <div class="col2">{{this.brand}}</div>
+                <div class="col3">{{this.expiry}}</div>
+                <div class="col4">{{this.discounted_price}}</div>
+                <div class="col5">{{this.quantity}}</div>
+                <div class="col6 btn-col">
+                  <button class="col-btn">Edit</button>
+                  <button class="col-btn">Delete</button>
+                </div>
+              </div>
+              {{/each}}
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ const {
 } = require("../utils/middleware");
 const connection = require("../utils/dbconnection");
 
-router.get("/retailer_dashboard", (req, res) => {
+router.get("/retailer_dashboard",[checkAuthenticated, checkIsRetailler] ,(req, res) => {
     let ngo = false, retailler = false;
     if(!req.user){
     }else if(req.user.status === "ngo"){
@@ -16,10 +16,27 @@ router.get("/retailer_dashboard", (req, res) => {
     }else{
         retailler = true;
     }
-    res.render("retailer_dashboard", {
-        ngo,
-        retailler
-    })
+    const sql = "select * from retailler where email = '" +req.user.email+ "'";
+    try {
+        connection.query(sql, (err, rows) => {
+            const data = rows[0];
+            const sql2 = "select * from items where email = '" +req.user.email+ "'";
+            connection.query(sql2, (err2, rows2) => {
+                res.render("retailer_dashboard",{
+                    rows2,
+                    data,
+                    retailler,
+                    ngo                
+                })
+            })
+        })
+    } catch (error) {
+        console.log(error);
+        res.render("index",{
+            ngo,
+            retailler
+        })
+    }
 })
 router.get("/fooditems", (req, res) => {
     let ngo = false, retailler = false;
@@ -52,7 +69,7 @@ router.get("/fooditems", (req, res) => {
         })
     })
 })
-router.get("/additem", (req, res) => {
+router.get("/additem",[checkAuthenticated, checkIsRetailler] ,(req, res) => {
     let ngo = false, retailler = false;
     if(!req.user){
     }else if(req.user.status === "ngo"){
@@ -74,7 +91,7 @@ router.post("/additem", (req, res) => {
     const discounted_price = req.body.discounted_price
     const retailler = true;
     try {
-        const sql = "INSERT INTO `items` (`id`, `email`, `product_name`, `brand`, `expiry`, `quantity`, `actual_price`, `discounted_price`) VALUES (NULL, 'amit@gmail.com', '"+product_name+"', '"+brand+"', '"+expiry+"', '"+quantity+"', '"+actual_price+"', '"+discounted_price+"');"
+        const sql = "INSERT INTO `items` (`id`, `email`, `product_name`, `brand`, `expiry`, `quantity`, `actual_price`, `discounted_price`) VALUES (NULL, '"+req.user.email+"', '"+product_name+"', '"+brand+"', '"+expiry+"', '"+quantity+"', '"+actual_price+"', '"+discounted_price+"');"
         connection.query(sql, (err, rows)=> {
             res.render("additem",{
                 retailler,

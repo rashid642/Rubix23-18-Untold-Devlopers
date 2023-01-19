@@ -21,7 +21,7 @@ function checkIsRetailler(req, res, next) {
 }
 
 function checkIsNGO(req, res, next) {
-    if (req.user.status !== "ngo") {
+    if (req.user.status === "ngo") {
         return next();
     } else {
         res.redirect("/");

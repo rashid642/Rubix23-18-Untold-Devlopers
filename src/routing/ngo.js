@@ -47,7 +47,7 @@ router.get("/ngo_profile", (req, res) => {
         });
     }
 })
-router.get("/ngo_own_profile", (req, res) => {
+router.get("/ngo_own_profile", [checkAuthenticated, checkIsNGO],(req, res) => {
     let ngo = true;
     try {
         console.log(req.user.id);
@@ -109,7 +109,7 @@ router.get("/ngolist", (req, res) => {
         });
     }
 })
-router.get("/donationlist", (req, res) => {
+router.get("/donationlist",[checkAuthenticated, checkIsNGO] ,(req, res) => {
     let ngo = false, retailler = false;
     if(!req.user){
     }else if(req.user.status ==="ngo"){
