@@ -31,6 +31,9 @@
         width: 80%;
         margin: 50px 0px;
       }
+      .shop-anchor{
+          color: blue;
+      }
     </style>
     <link
       rel="stylesheet"
@@ -64,7 +67,7 @@
                         <td>{{this.brand}}</td>
                         <td>{{this.expiry}}</td>
                         <td>{{this.discounted_price}}</td>
-                        <td>Row 1 Data 2</td>
+                        <td><a class="shop-anchor" href="/shopinfo?email={{this.email}}">{{this.shop_name}}</a></td>
                     </tr>
                     {{/each}}
                 </tbody>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DashBoard</title>
+    <meta property="og:title" content="Clean Sudden Goldfish" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+      .ret-cont{
+
+            display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 85%;
+          margin: 50px auto;
+          border-top-right-radius: 50px;
+          border-bottom-left-radius: 50px;
+          padding: 20px 30px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      }
+      .ret-img{
+            width: 200px;
+        border-radius: 100%;
+      }
+      .ret-details{
+            width: 600px;
+            padding: 10px 30px;
+            margin: 10px 30px;
+      }
+      .ret-inner-detail{
+            display: flex;
+            padding: 10px 0px;
+            font-size: 20px;
+      }
+      .ret-left{
+        width: 200px;
+        font-weight: 700;
+      }
+      .ret-right{
+
+      }
+      .grid-cont{
+            border: 2px solid;
+            margin: 40px 20px;
+      }
+      .grid-rows{
+          display: flex;
+          width: 1250px;
+      }
+      .col1{
+        width: 25%; 
+        background: #d3e9d0;
+        padding: 10px 20px;       
+      }
+      .col2{
+        width: 25%;
+        padding: 10px 20px;
+      }
+      .col3{
+        width: 15%;
+        background: #d3e9d0;
+        padding: 10px 20px;
+      }
+      .col4{
+        width: 10%;
+        padding: 10px 20px;
+      }
+      .col5{
+        width: 10%;
+        background: #d3e9d0;
+        padding: 10px 20px;
+      }
+      .col6{
+        padding: 10px 20px;
+      }
+      .tb-head{
+          font-weight: 700;
+      }
+      .row-head{
+        border: 2px solid;
+      }
+      .col-btn{
+        border: 1px solid;
+        padding: 6px 20px;
+        margin: 0px 2px;
+      }
+      .btn-col{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 189px;
+      }
+      .add-item-btn{
+        border: 2px solid;
+        padding: 14px 20px;
+        border-radius: 10px;
+        color: green;
+      }
+      .abv-grid{
+          display: flex;
+          margin: 10px 50px;
+        align-items: center;
+        justify-content: space-around;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <!--This is the head section-->
+    <!-- <style> ... </styl> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="./css/home.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+        {{>navbar}}
+        <div class="home-container">
+            <h1>Retailer Profile</h1>
+          <div class="ret-cont">
+                  <img src="person-icon.png" class="ret-img">
+              <div class="ret-details">
+                  <div class="ret-inner-detail">
+                  <div class="ret-left">Shop Name:</div>
+                  <div class="ret-right">{{data.shop_name}}</div>
+                </div>
+                <div class="ret-inner-detail">
+                  <div class="ret-left">Owner Name:</div>
+                  <div class="ret-right">{{data.owner_name}}</div>
+                </div>
+                <div class="ret-inner-detail">
+                  <div class="ret-left">Email:</div>
+                  <div class="ret-right">{{data.email}}</div>
+                </div>
+                <div class="ret-inner-detail">
+                  <div class="ret-left">Contact No.:</div>
+                  <div class="ret-right">{{data.cont_no}}</div>
+                </div>
+                <div class="ret-inner-detail">
+                  <div class="ret-left">Shop Address:</div>
+                  <div class="ret-right">{{data.cont_no}}</div>
+                </div>
+              </div>
+          </div>
+          <div>
+            <div class="grid-cont">
+              <div class="grid-rows row-head">
+                <div class="col1 tb-head">Product Name</div>
+                <div class="col2 tb-head">Brand</div>
+                <div class="col3 tb-head">Expiry</div>
+                <div class="col4 tb-head">Price</div>
+                <div class="col5 tb-head">Quantity</div>
+                <div class="col6 tb-head">Operations</div>
+              </div>
+              {{#each rows2}}
+              <div class="grid-rows">
+                <div class="col1">{{this.product_name}}</div>
+                <div class="col2">{{this.brand}}</div>
+                <div class="col3">{{this.expiry}}</div>
+                <div class="col4">{{this.discounted_price}}</div>
+                <div class="col5">{{this.quantity}}</div>
+                <div class="col6 btn-col">
+                  <button class="col-btn">Edit</button>
+                  <button class="col-btn">Delete</button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+    </div>
+    {{>footer}}
+    {{!-- <script
+      data-section-id="header"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> --}}
+
+  </body>
+</html>

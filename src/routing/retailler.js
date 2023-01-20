@@ -46,22 +46,23 @@ router.get("/fooditems", (req, res) => {
     }else{
         retailler = true;
     }
-    const sql = "select * from items";
+    const sql = "select * from items, retailler where items.email = retailler.email;";
     connection.query(sql, (err, rows)=>{
         let date2 = new Date()
         let t2 = date2.getTime();
         let newrows = [];
         for(let i=0; i<rows.length; i++) {
-            let curprice = rows[i].actual_price;
+            let curprice = rows[i].discounted_price;
             let date1 = new Date(rows[1].expiry);
             let t1 = date1.getTime();
             var Difference_In_Time = t1 - t2;
             if(Difference_In_Time < 0) continue;
             var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-            rows[i].discounted_price = Math.ceil(curprice - Difference_In_Days*2);
+            console.log("diffrence in days ",Difference_In_Days);
+            rows[i].discounted_price = Math.ceil(curprice - curprice*Difference_In_Days*0.01);
             newrows.push(rows[i]);
         }
-        console.log("newrows",newrows);
+        // console.log("newrows",newrows);
         res.render("fooditems", {
             newrows,
             ngo,
@@ -103,6 +104,36 @@ router.post("/additem", (req, res) => {
         console.log(error);
         res.render("additem",{
             msg : "Item is not added",
+            retailler
+        })
+    }
+})
+router.get("/shopinfo" ,(req, res) => {
+    let ngo = false, retailler = false;
+    if(!req.user){
+    }else if(req.user.status === "ngo"){
+        ngo = true;
+    }else{
+        retailler = true;
+    }
+    const sql = "select * from retailler where email = '" +req.query.email+ "'";
+    try {
+        connection.query(sql, (err, rows) => {
+            const data = rows[0];
+            const sql2 = "select * from items where email = '" +req.query.email+ "'";
+            connection.query(sql2, (err2, rows2) => {
+                res.render("shopinfo",{
+                    rows2,
+                    data,
+                    retailler,
+                    ngo                
+                })
+            })
+        })
+    } catch (error) {
+        console.log(error);
+        res.render("index",{
+            ngo,
             retailler
         })
     }
